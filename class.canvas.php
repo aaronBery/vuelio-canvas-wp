@@ -1,13 +1,16 @@
 <?php
+require_once( CANVAS__PLUGIN_DIR .'canvasWidget.php');
 
 class Canvas {
   	const CANVAS_BASE_URL = '//canvas.vuelio.co.uk';
 
     public function init() {
-      register_activation_hook( __FILE__, array( 'Canvas', 'register_activation_hook' ) );
-      register_deactivation_hook( __FILE__, array( 'Canvas', 'register_activation_hook' ) );
+      register_activation_hook( __FILE__, array('Canvas', 'register_activation_hook'));
+      register_deactivation_hook( __FILE__, array('Canvas', 'register_activation_hook'));
       add_action('media_buttons', array($this, 'mediaButtons'), 11);
-      add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
+      add_action( 'wp_enqueue_scripts', array($this, 'register_plugin_styles'));
+      add_action( 'widgets_init', array($this, 'load_widget') );
+      add_shortcode('sgmb', array($this, 'showShortCode'));
   	}
 
     public function register_activation_hook() {
@@ -24,8 +27,8 @@ class Canvas {
 
     public function register_plugin_styles()
     {
-      wp_register_style( 'canvas-style', plugins_url( CANVAS_DIR_NAME.'/css/plugin.css' ) );
-		  wp_enqueue_style( 'canvas-style' );
+      wp_register_style('canvas-style', plugins_url(CANVAS_DIR_NAME.'/css/plugin.css'));
+		  wp_enqueue_style('canvas-style');
     }
 
     public function mediaButtons()
@@ -55,4 +58,15 @@ class Canvas {
   		</div>
   	<?php
   	}
+
+    public function load_widget()
+  	{
+  		register_widget('CanvasWidget');
+  	}
+
+    public function showShortCode($args)
+    {
+      $widget = new CanvasWidget();
+      return $widget->init($args);
+    }
 }
