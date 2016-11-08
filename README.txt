@@ -4,6 +4,7 @@ Contributors: Vuelio
 Tags: Vuelio, canvas, social wall, pr, releases
 Requires at least: 3.8
 Tested up to: 4.6.1
+Stable tag: master
 
 == Description ==
 This plugin allows a user to insert a Vuelio Canvas into their WYSIWYG editor and it will render on the front end of the website.
