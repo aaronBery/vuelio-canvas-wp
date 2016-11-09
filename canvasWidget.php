@@ -14,14 +14,14 @@ class CanvasWidget extends WP_Widget
   public function form( $instance )
 	{
     $defaults = array(
-        'canvasUrl' => 'https://canvas.vuelio.co.uk/demoazurevueliocouk/canvas/'
+        'canvasUrl' => CANVAS_DEFAULT_URL
     );
     $canvasUrl = (isset($instance[ 'canvasUrl' ])) ? $instance[ 'canvasUrl' ] : $defaults['canvasUrl'];
 	?>
 
 	<p>
 	<label for="<?php echo $this->get_field_id( 'canvasUrl' ); ?>"><?php _e( 'Vuelio Canvas URL (Note: this is a site wide setting for all canvas widgets)' ); ?></label>
-	<input type="text" class ="widefat" id="<?php echo $this->get_field_id( 'canvasUrl' ); ?>" name="<?php echo $this->get_field_name( 'canvasUrl' ); ?>" value="<?php echo get_option('CANVAS_URL_SIDEBAR', ''); ?>" placeholder="https://canvas.vuelio.co.uk/">
+	<input type="text" class ="widefat" id="<?php echo $this->get_field_id( 'canvasUrl' ); ?>" name="<?php echo $this->get_field_name( 'canvasUrl' ); ?>" value="<?php echo get_option('CANVAS_URL_SIDEBAR', ''); ?>" placeholder="<?php echo CANVAS_ROOT_URL; ?>">
 	</p>
 
 	<?php
@@ -39,13 +39,11 @@ class CanvasWidget extends WP_Widget
 
  public function update($new_instance, $old_instance)
  {
-
-   //print_r($new_instance['canvasUrl']);exit;
    update_option('CANVAS_URL_SIDEBAR', $new_instance['canvasUrl']);
    return $instance;
  }
 
-	public function init($args)
+	public function init()
 	{
     //do something
 	}
