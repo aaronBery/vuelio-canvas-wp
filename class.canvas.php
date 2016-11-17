@@ -2,8 +2,6 @@
 require_once( CANVAS__PLUGIN_DIR .'canvasWidget.php');
 
 class Canvas {
-  	const CANVAS_BASE_URL = '//canvas.vuelio.co.uk';
-
     public function init() {
       register_activation_hook( __FILE__, array('Canvas', 'register_activation_hook'));
       register_deactivation_hook( __FILE__, array('Canvas', 'register_activation_hook'));
@@ -47,7 +45,7 @@ class Canvas {
   		?>
   		<div id="canvas-thickbox" style="display: none" class="thickbox">
   			<div class="wrap">
-          <img src="//canvas.vuelio.co.uk/assets/images/vuelio-logo.png" class="thickbox__logo" />
+        <img src="<?php echo CANVAS_URL ?>/assets/vuelio-logo.png" class="thickbox__logo" />
   				<p>Insert the URL of your Vuelio canvas</p>
   				<input type="text" placeholder="https://canvas.vuelio.co.uk/demoazurevueliocouk/canvas/" id="canvas-url" />
           <p class="submit">

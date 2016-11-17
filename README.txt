@@ -7,6 +7,15 @@ Tested up to: 4.6.1
 Stable tag: master
 
 == Description ==
-This plugin allows a user to insert a Vuelio Canvas into their WYSIWYG editor and it will render on the front end of the website.
+This plugin allows a user to insert a Vuelio Canvas into their WYSIWYG editor or in their widgets e.g. sidebar 
+and it will render on the front end of the website.
 
-The Canvas is hosted in an iframe which is set to be fully responsive.
+The Canvas is an application that runs on the media company Vuelio's infrastructure. This plugin essentially hosts a view of a chosen Canvas via an iframe in the users blog.
+
+The iframe when selected is set to be fully responsive.
+
+Ways to use
+
+1. You can use the plugin in your editor. Once activated an 'Insert Vuelio Canvas' button will appear above the WYSIWYG. Click on this and paste in your canvas address and the plugin will create an iframe with your chosen source.
+
+2. Under appearance -> widgets, you can drag the 'Canvas Widget' into a content panel. Once added you can add the url of your canvas. This becomes your global canas widget URL and this will insert an iframe with this value as the source.
