@@ -48,6 +48,7 @@ class Canvas {
         <img src="<?php echo CANVAS_URL ?>/assets/vuelio-logo.png" class="thickbox__logo" />
   				<p>Insert the URL of your Vuelio canvas</p>
   				<input type="text" placeholder="https://canvas.vuelio.co.uk/demoazurevueliocouk/canvas/" id="canvas-url" />
+          <p id="canvas-error">Please enter a valid canvas url of the format https://canvas/vuelio.co.uk/xxx/xxx</p>
           <p class="submit">
             <input type="button" id="canvas-insert" class="button-primary" value="Insert"/>
   					<a class="button-secondary" onclick="jQuery('#canvas-thickbox').dialog('close')"; title="Cancel">Cancel</a>
